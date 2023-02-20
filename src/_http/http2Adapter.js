@@ -1,5 +1,10 @@
 'use strict'
-var http2 = require('http2')
+try {
+  var http2 = require('http2')
+} catch (_) {
+  // http2 is not supported in this environment
+  return
+}
 var errors = require('./errors')
 var faunaErrors = require('../errors')
 var util = require('../_util')
